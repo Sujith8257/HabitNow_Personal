@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:habit_now/src/utils/const.dart';
 import 'package:habit_now/src/utils/extentions.dart';
+import 'package:habit_now/src/utils/widget_sync_service.dart';
 
 class DrawerWidget extends StatelessWidget {
   const DrawerWidget({super.key});
@@ -101,10 +102,10 @@ class DrawerWidget extends StatelessWidget {
                 height: context.height * 0.009,
               ),
               DrawerTile(
-                function: () {
-                  //TODO: just route
+                function: () async {
+                  await WidgetSyncService.pinListWidget();
                 },
-                text: 'Customize',
+                text: 'Add widget',
                 icon: Icons.draw_outlined,
                 isSelected: false,
               ),
@@ -194,7 +195,7 @@ class DrawerTile extends StatelessWidget {
                       ? const Color.fromARGB(255, 202, 33, 89)
                       : Colors.grey,
                   icon,
-                  size: context.height * 0.039,
+                  size: context.height * 0.032,
                 ),
                 SizedBox(
                   width: context.width * 0.032,
@@ -207,7 +208,7 @@ class DrawerTile extends StatelessWidget {
                       color: isSelected
                           ? const Color.fromARGB(255, 202, 33, 89)
                           : Colors.grey,
-                      fontSize: 17),
+                      fontSize: 16),
                 ),
               ]),
         ),

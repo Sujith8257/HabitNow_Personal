@@ -387,10 +387,14 @@ class FloatingActionButtonBottomSheet extends StatelessWidget {
           subTitle:
               "Activity that repeats ov er time.It has detailed tracking and statistics.",
           icon: Icons.emoji_events_outlined,
-          function: () {},
+          function: () {
+            context.pop();
+            context.pushNamed("/recurring_task/select_category");
+          },
         ),
         FloatingABBottomSheetTile(
             function: () {
+              context.pop();
               context.pushNamed("/recurring_task/select_category");
             },
             title: "Recurring Task",
@@ -399,6 +403,7 @@ class FloatingActionButtonBottomSheet extends StatelessWidget {
             icon: Icons.repeat),
         FloatingABBottomSheetTile(
             function: () {
+              context.pop();
               context.pushNamed("/new_task");
             },
             title: "Task",

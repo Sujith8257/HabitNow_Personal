@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habit_now/src/cubit/main/bottomNavBar_cubit.dart';
+import 'package:habit_now/src/utils/const.dart';
 import 'package:habit_now/src/utils/extentions.dart';
 
 class CustomBottomNavTab extends StatelessWidget {
@@ -33,12 +34,12 @@ class CustomBottomNavTab extends StatelessWidget {
               onTap: function,
               child: Container(
                 width: double.infinity,
-                height: context.height * 0.047,
+                height: context.height * Sizes.kBottomNavIconContainerHeightFactor,
                 decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(500),
                 ),
                 child: Icon(icon,
-                    size: 30,
+                    size: Sizes.kBottomNavIconSize,
                     color: isSelected
                         ? const Color.fromARGB(255, 255, 15, 99)
                         : Colors.grey),
@@ -52,7 +53,7 @@ class CustomBottomNavTab extends StatelessWidget {
             text,
             style: TextStyle(
                 fontWeight: isSelected ? FontWeight.bold : FontWeight.w500,
-                fontSize: 14,
+                fontSize: Sizes.kBottomNavLabelSize,
                 color: isSelected
                     ? const Color.fromARGB(255, 255, 15, 99)
                     : Colors.grey),
@@ -77,10 +78,10 @@ class CustomBottomNavBar extends StatelessWidget {
       builder: (context, pageIndex) {
         return Container(
           padding: const EdgeInsets.only(
-            top: 15,
+            top: 10,
           ),
           width: double.infinity,
-          height: context.height * 0.13,
+          height: context.height * Sizes.kBottomNavBarHeightFactor,
           decoration:
               const BoxDecoration(color: Color.fromARGB(255, 28, 28, 28)),
           child:
