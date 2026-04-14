@@ -21,8 +21,14 @@ class Fonts {
 }
 
 class Sizes {
-  static const kActionIcon = 28.0;
+  static const kActionIcon = 24.0;
   static const kTimeProgressIdicator = 230.0;
+  static const kBottomNavBarHeightFactor = 0.11;
+  static const kBottomNavIconContainerHeightFactor = 0.04;
+  static const kBottomNavIconSize = 24.0;
+  static const kBottomNavLabelSize = 12.0;
+  static const kPrimaryFabSizeFactor = 0.068;
+  static const kPrimaryFabIconSizeFactor = 0.03;
 
   static const kPaddingSmall = 8.0;
   static const kPaddingMedium = 16.0;

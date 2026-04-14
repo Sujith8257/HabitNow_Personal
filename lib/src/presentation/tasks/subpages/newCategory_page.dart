@@ -178,7 +178,7 @@ class CategoriesPage extends StatelessWidget {
                   },
                   borderRadius: BorderRadius.circular(context.fontSize * 1.1),
                   child: Container(
-                    height: context.height * 0.075,
+                    height: context.height * 0.065,
                     width: double.infinity,
                     decoration: BoxDecoration(
                         borderRadius:
@@ -188,7 +188,7 @@ class CategoriesPage extends StatelessWidget {
                       "NEW CATEGORY",
                       style: TextStyle(
                           color: const Color.fromARGB(255, 29, 11, 17),
-                          fontSize: context.fontSize,
+                          fontSize: context.fontSize * 0.9,
                           fontWeight: FontWeight.w700),
                     )),
                   ),
@@ -229,14 +229,14 @@ class CategoryListViewElement extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(bottom: 7),
-                height: context.height * 0.095,
-                width: context.height * 0.095,
+                height: context.height * 0.082,
+                width: context.height * 0.082,
                 decoration: BoxDecoration(
                     color: category.color,
                     borderRadius: BorderRadius.circular(20)),
                 child: Icon(
                   category.icon,
-                  size: context.fontSize * 2.2,
+                  size: context.fontSize * 1.85,
                 ),
               ),
               SizedBox(
@@ -295,14 +295,14 @@ class EditCategoryListViewElement extends StatelessWidget {
             children: [
               Container(
                 margin: const EdgeInsets.only(bottom: 7),
-                height: context.height * 0.095,
-                width: context.height * 0.095,
+                height: context.height * 0.082,
+                width: context.height * 0.082,
                 decoration: BoxDecoration(
                     color: category.color,
                     borderRadius: BorderRadius.circular(20)),
                 child: Icon(
                   category.icon,
-                  size: context.fontSize * 2.2,
+                  size: context.fontSize * 1.85,
                 ),
               ),
               SizedBox(
@@ -490,8 +490,8 @@ class EditCategoryIconButton extends StatelessWidget {
         context.pop();
       },
       child: SizedBox(
-        height: context.height * 0.11,
-        width: context.height * 0.11,
+        height: context.height * 0.095,
+        width: context.height * 0.095,
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -499,7 +499,7 @@ class EditCategoryIconButton extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                size: context.fontSize * 2.6,
+                size: context.fontSize * 2.15,
                 color: const Color.fromARGB(255, 186, 186, 186),
               ),
             ],
@@ -526,8 +526,8 @@ class NewCategoryIconButton extends StatelessWidget {
         context.pop();
       },
       child: SizedBox(
-        height: context.height * 0.11,
-        width: context.height * 0.11,
+        height: context.height * 0.095,
+        width: context.height * 0.095,
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
@@ -535,7 +535,7 @@ class NewCategoryIconButton extends StatelessWidget {
             children: [
               Icon(
                 icon,
-                size: context.fontSize * 2.6,
+                size: context.fontSize * 2.15,
                 color: const Color.fromARGB(255, 186, 186, 186),
               ),
             ],
@@ -650,16 +650,16 @@ class EditCategoryColorButton extends StatelessWidget {
         context.pop();
       },
       child: SizedBox(
-        height: context.height * 0.11,
-        width: context.height * 0.11,
+        height: context.height * 0.095,
+        width: context.height * 0.095,
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: context.fontSize * 2.5,
-                width: context.fontSize * 2.5,
+                height: context.fontSize * 2.1,
+                width: context.fontSize * 2.1,
                 decoration: BoxDecoration(
                     color: color, borderRadius: BorderRadius.circular(500)),
               )
@@ -687,16 +687,16 @@ class NewCategoryColorButton extends StatelessWidget {
         context.pop();
       },
       child: SizedBox(
-        height: context.height * 0.11,
-        width: context.height * 0.11,
+        height: context.height * 0.095,
+        width: context.height * 0.095,
         child: Center(
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                height: context.fontSize * 2.5,
-                width: context.fontSize * 2.5,
+                height: context.fontSize * 2.1,
+                width: context.fontSize * 2.1,
                 decoration: BoxDecoration(
                     color: color, borderRadius: BorderRadius.circular(500)),
               )
@@ -731,7 +731,7 @@ class NewCategoryAppBar extends StatelessWidget implements PreferredSize {
           },
           icon: const Icon(Icons.keyboard_arrow_left_outlined),
           color: AppColors.kLightPurple,
-          iconSize: context.fontSize * 1.6,
+          iconSize: Sizes.kActionIcon,
         ),
         title: Transform.translate(
           offset: Offset(-context.width * 0.05, 0),

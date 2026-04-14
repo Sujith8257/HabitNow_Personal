@@ -35,8 +35,8 @@ class CustomFloatingActionButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: context.height * 0.082,
-      height: context.height * 0.082,
+      width: context.height * Sizes.kPrimaryFabSizeFactor,
+      height: context.height * Sizes.kPrimaryFabSizeFactor,
       child: FloatingActionButton(
           backgroundColor: AppColors.kpurpleOn,
           elevation: 0,
@@ -49,7 +49,7 @@ class CustomFloatingActionButton extends StatelessWidget {
             child: Icon(
               Icons.add,
               color: Colors.white,
-              size: context.height * 0.04,
+              size: context.height * Sizes.kPrimaryFabIconSizeFactor,
             ),
           )),
     );

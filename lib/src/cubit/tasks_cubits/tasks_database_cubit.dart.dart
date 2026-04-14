@@ -1,6 +1,7 @@
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habit_now/src/utils/boxes.dart';
 import 'package:habit_now/src/utils/models/task_model.dart';
+import 'package:habit_now/src/utils/widget_sync_service.dart';
 
 class TasksDatabaseCubit extends Cubit<List<TaskModel>> {
   TasksDatabaseCubit() : super([]) {
@@ -9,13 +10,15 @@ class TasksDatabaseCubit extends Cubit<List<TaskModel>> {
 
   Future<void> createTask(TaskModel taskModel) async {
     await tasksBox.put(taskModel.id, taskModel);
-
-    print(tasksBox.values.length);
+    final updatedData = tasksBox.values.map((value) => value as TaskModel).toList();
+    emit(updatedData);
+    await WidgetSyncService.syncTasks(updatedData);
   }
 
   void getTasks() {
     final data = tasksBox.values.map((value) => value as TaskModel).toList();
     emit(data);
+    WidgetSyncService.syncTasks(data);
   }
 
   Future<void> updateTask(TaskModel updatedTask) async {
@@ -28,6 +31,7 @@ class TasksDatabaseCubit extends Cubit<List<TaskModel>> {
       final updatedData =
           tasksBox.values.map((value) => value as TaskModel).toList();
       emit(updatedData);
+      await WidgetSyncService.syncTasks(updatedData);
     }
   }
 
@@ -41,6 +45,7 @@ class TasksDatabaseCubit extends Cubit<List<TaskModel>> {
       final updatedData =
           tasksBox.values.map((value) => value as TaskModel).toList();
       emit(updatedData);
+      await WidgetSyncService.syncTasks(updatedData);
     }
   }
 }
