@@ -24,10 +24,11 @@ class HabitNowListWidgetProvider : AppWidgetProvider() {
             appWidgetId: Int
         ) {
             val views = RemoteViews(context.packageName, R.layout.habit_now_widget_list)
-            val title = HomeWidgetPlugin.getData(context, "widget_title", "HabitNow")
-            val subtitle = HomeWidgetPlugin.getData(context, "widget_subtitle", "0 pending - 0 completed")
-            val lines = HomeWidgetPlugin.getData(context, "widget_tasks_lines", "- No tasks yet")
-            val footer = HomeWidgetPlugin.getData(context, "widget_footer", "Total tasks: 0")
+            val data = HomeWidgetPlugin.getData(context)
+            val title = data.getString("widget_title", "HabitNow")
+            val subtitle = data.getString("widget_subtitle", "0 pending - 0 completed")
+            val lines = data.getString("widget_tasks_lines", "- No tasks yet")
+            val footer = data.getString("widget_footer", "Total tasks: 0")
 
             views.setTextViewText(R.id.widget_list_title, title)
             views.setTextViewText(R.id.widget_list_subtitle, subtitle)

@@ -24,8 +24,9 @@ class HabitNowCompactWidgetProvider : AppWidgetProvider() {
             appWidgetId: Int
         ) {
             val views = RemoteViews(context.packageName, R.layout.habit_now_widget_compact)
-            val title = HomeWidgetPlugin.getData(context, "widget_title", "HabitNow")
-            val subtitle = HomeWidgetPlugin.getData(context, "widget_subtitle", "0 pending - 0 completed")
+            val data = HomeWidgetPlugin.getData(context)
+            val title = data.getString("widget_title", "HabitNow")
+            val subtitle = data.getString("widget_subtitle", "0 pending - 0 completed")
 
             views.setTextViewText(R.id.widget_compact_title, title)
             views.setTextViewText(R.id.widget_compact_subtitle, subtitle)
