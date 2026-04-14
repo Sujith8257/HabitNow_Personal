@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habit_now/src/cubit/tasks_cubits/new_task_cubit.dart';
 import 'package:habit_now/src/cubit/tasks_cubits/settPriorityTextFeild_cubit.dart';
+import 'package:habit_now/src/cubit/tasks_cubits/tasks_database_cubit.dart.dart';
 import 'package:habit_now/src/presentation/tasks/subpages/newTask_page.dart';
 import 'package:habit_now/src/utils/const.dart';
 import 'package:habit_now/src/utils/extentions.dart';
@@ -80,7 +81,27 @@ class WhenToDoItPage extends StatelessWidget {
                     Material(
                       color: AppColors.kBackgroundColor,
                       child: InkWell(
-                        onTap: () {},
+                        onTap: () {
+                          final taskModel = context.read<NewTaskCubit>().state.taskModel;
+                          if (taskModel.name.trim().isEmpty) {
+                            context.showToast(
+                              const Text(
+                                "Enter a name",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            );
+                            return;
+                          }
+
+                          context.read<TasksDatabaseCubit>().createTask(taskModel);
+                          context.read<TasksDatabaseCubit>().getTasks();
+                          context.read<NewTaskCubit>().initState();
+                          context.pushNamedAndRemoveUntil("/main");
+                        },
                         child: Container(
                           margin: EdgeInsets.only(top: context.height * 0.008),
                           height: context.height * 0.04,

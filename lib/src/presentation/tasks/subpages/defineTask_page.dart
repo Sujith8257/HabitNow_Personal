@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:habit_now/src/cubit/tasks_cubits/TextControllers_cubit.dart';
+import 'package:habit_now/src/cubit/tasks_cubits/new_task_cubit.dart';
 import 'package:habit_now/src/presentation/tasks/subpages/selectCategory_page.dart';
 import 'package:habit_now/src/presentation/timer/components/timer_widgets.dart';
 import 'package:habit_now/src/utils/const.dart';
@@ -41,7 +42,9 @@ class DefineTaskPage extends StatelessWidget {
                   child: SizedBox(
                     height: context.height * 0.065,
                     child: TextField(
-                      onChanged: (newText) {},
+                      onChanged: (newText) {
+                        context.read<NewTaskCubit>().updateProperty(name: newText);
+                      },
                       controller: textEditingFeildController,
                       focusNode: firstFocusNode,
                       // ADDED STUFF
@@ -105,7 +108,9 @@ class DefineTaskPage extends StatelessWidget {
                     child: TextField(
                       focusNode: secondFocusNode,
                       textInputAction: TextInputAction.done,
-                      onChanged: (newText) {},
+                      onChanged: (newText) {
+                        context.read<NewTaskCubit>().updateProperty(note: newText);
+                      },
                       style: TextStyle(fontSize: context.fontSize * 1.1),
                       autofocus: true,
                       autocorrect: true,
